@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} Ronty's Pizzeria - Signup {% endblock %}
+{% block content %}
+<form action="/submit_sign_up" method="post" id="form">
+  <div class="element">
+    <label for="cid">Enter customer ID: </label>
+    <input type="text" name="cid" id="cid" required />
+  </div>
+  <div class="element">
+    <label for="passwd">Enter password: </label>
+    <input type="password" name="passwd" id="passwd" required />
+  </div>
+  <div class="element">
+    <input class="button" type="submit" value="Submit" />
+  </div>
+</form>
+<a class="footer" href="/login">Already registered? Log in</a>
+{% if error %}
+  <p class="alert">Customer with given customer ID already exists</p>
+{% endif %}
+{% endblock %}

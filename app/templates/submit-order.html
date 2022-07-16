@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %} Ronty's Pizzeria - Order {% endblock %}
+{% block content %}
+<h2 class="personalized-header">Hi {{ cid }}!</h2>
+<form action="/submit_order?token={{ token }}" method="post" id="form">
+  <div class="element">
+    <label for="item">Enter item: </label>
+    <input type="text" name="item" id="item" required />
+  </div>
+  <div class="element">
+    <label for="qty">Enter quantity: </label>
+    <input type="text" name="qty" id="qty" required />
+  </div>
+  <div class="element">
+    <input class="button" type="submit" value="Submit" />
+  </div>
+</form>
+<a class="footer" href="/get_pending_orders?token={{ token }}">View orders</a>
+{% endblock %}

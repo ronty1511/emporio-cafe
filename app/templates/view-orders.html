@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %} Ronty's Pizzeria - View orders {% endblock %}
+{% block content %}
+<table>
+    <thead>
+    <tr>
+        <th>Item</th>
+        <th>Qty.</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.item }}</td>
+        <td>{{ order.qty }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a class="footer" href="/order?token={{ token }}">Order again</a>
+{% endblock %}

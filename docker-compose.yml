@@ -1,0 +1,31 @@
+version: "3"
+services:
+  postgres:
+    container_name: postgres_db
+    image: 'postgres:alpine'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: emporiocafe
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+    - '5432:5432'
+  app:
+    container_name: flask_app
+    build: ./app
+    environment:
+      - PORT=5000
+      - LOG_LEVEL=INFO
+    ports:
+      - '5000:5000'
+    depends_on:
+      - postgres
+      - redis
+  redis:
+    container_name: redis
+    image: 'redis:alpine'
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes

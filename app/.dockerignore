@@ -1,0 +1,6 @@
+venv
+.git
+.gitignore
+Dockerfile
+Procfile
+.idea

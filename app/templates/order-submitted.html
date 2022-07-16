@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block title %} Ronty's Pizzeria - Order submitted {% endblock %}
+{% block content %}
+<h2 class="personalized-header">Order submitted successfully!</h2>
+<a class="footer" href="/order?token={{ token }}">Order again</a>
+<a class="footer" href="/get_pending_orders?token={{ token }}">View orders</a>
+{% endblock %}
